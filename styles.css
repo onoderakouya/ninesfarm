@@ -1,0 +1,601 @@
+/* =========================
+   ベース設定
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Segoe UI", "Noto Sans JP", sans-serif;
+  line-height: 1.7;
+  color: #2f3437;
+  background-color: #fafaf5;
+}
+
+/* リンク・ボタンの共通 */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.1s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #7baf7b;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #4a5a4a;
+  border: 1px solid #cbd9c2;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #4a5a4a;
+  border: 1px solid #cbd9c2;
+}
+
+.btn-sm {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+/* コンテナ */
+
+.container {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+/* 見出し */
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.6em;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  border-left: 4px solid #7baf7b;
+  padding-left: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* =========================
+   ヘッダー
+========================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(250, 250, 245, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #e1e4d8;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  gap: 1rem;
+}
+
+.logo a {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+}
+
+.site-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.88rem;
+}
+
+.site-nav a {
+  position: relative;
+  padding-bottom: 0.1rem;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: #7baf7b;
+  transition: width 0.18s ease;
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+.header-cta {
+  flex-shrink: 0;
+}
+
+/* スマホでナビ折り返し防止の簡易対応 */
+@media (max-width: 880px) {
+  .site-nav {
+    display: none;
+  }
+}
+
+/* =========================
+   ヒーロー
+========================= */
+
+.hero {
+  padding: 4rem 0 3rem;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.hero-image-placeholder {
+  background: linear-gradient(
+      135deg,
+      rgba(123, 175, 123, 0.3),
+      rgba(226, 167, 111, 0.32)
+    );
+  border-radius: 18px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* =========================
+   セクション共通
+========================= */
+
+.section {
+  padding: 3.2rem 0;
+}
+
+.section:nth-of-type(odd) {
+  background-color: #f4f5ec;
+}
+
+.section p {
+  margin: 0 0 0.8rem;
+}
+
+/* =========================
+   選ばれる理由
+========================= */
+
+.section-reason .reason-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+
+.reason-item {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 1.3rem 1.4rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================
+   研修後の未来
+========================= */
+
+.section-future .future-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.future-column {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.future-column ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.future-column li {
+  margin-bottom: 0.4rem;
+}
+
+.future-note {
+  font-size: 0.95rem;
+  color: #555b4d;
+}
+
+/* =========================
+   研修内容
+========================= */
+
+.section-program .program-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.program-day dl {
+  margin: 0;
+}
+
+.program-time {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 0.8rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #dde2d3;
+}
+
+.program-time dt {
+  font-weight: 600;
+}
+
+.program-time dd {
+  margin: 0;
+}
+
+.program-note {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #777c6b;
+}
+
+.program-year ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.program-year li {
+  margin-bottom: 0.4rem;
+}
+
+/* =========================
+   研修生の声
+========================= */
+
+.section-voices .voices-intro {
+  margin-bottom: 1.2rem;
+}
+
+.voices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+
+.voice-item {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1.4rem 1.3rem 1.3rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.voice-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  background: #d0dec7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+/* =========================
+   独立支援
+========================= */
+
+.section-support .support-lead {
+  margin-bottom: 1.4rem;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.support-item {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================
+   九戸村での暮らし
+========================= */
+
+.section-life .life-intro {
+  margin-bottom: 1.2rem;
+}
+
+.life-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.life-item {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.faq-item {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.faq-item h3 {
+  font-size: 1rem;
+}
+
+/* =========================
+   ナインズファームについて
+========================= */
+
+.section-about .about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-text ul {
+  padding-left: 1.1rem;
+  margin: 0 0 0.8rem;
+}
+
+.about-image-placeholder {
+  background: #d6dfc8;
+  border-radius: 16px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #3b4335;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.section-cta {
+  text-align: center;
+}
+
+.section-cta p {
+  margin-bottom: 1.4rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+/* =========================
+   お問い合わせフォーム
+========================= */
+
+.section-contact .contact-form {
+  max-width: 620px;
+  margin: 1.4rem auto 0;
+}
+
+.form-row {
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ced4c6;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: #7baf7b;
+  box-shadow: 0 0 0 1px rgba(123, 175, 123, 0.35);
+}
+
+.form-row-submit {
+  text-align: right;
+}
+
+/* =========================
+   フッター
+========================= */
+
+.site-footer {
+  background-color: #222623;
+  color: #e8ebde;
+  padding: 2.2rem 0 1.6rem;
+  margin-top: 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.footer-logo {
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.footer-address {
+  font-size: 0.88rem;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.86rem;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  margin-top: 0.4rem;
+  color: #b2b7a5;
+}
+
+/* =========================
+   レスポンシブ
+========================= */
+
+@media (max-width: 960px) {
+  .hero-inner,
+  .section-program .program-layout,
+  .section-about .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 3.2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .section-reason .reason-grid,
+  .voices-grid,
+  .support-grid,
+  .life-grid,
+  .faq-list {
+    grid-template-columns: 1fr;
+  }
+
+  .section-future .future-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image-placeholder {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-inner {
+    padding-inline: 0.4rem;
+  }
+
+  .logo a {
+    font-size: 0.9rem;
+  }
+}
